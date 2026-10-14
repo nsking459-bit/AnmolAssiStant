@@ -1,0 +1,119 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #030712;
+    color: #f3f4f6;
+  }
+
+  .font-hud {
+    font-family: 'Chakra Petch', sans-serif;
+  }
+
+  .font-mono-tech {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Futuristic animations & glows */
+@keyframes pulse-glow {
+  0%, 100% {
+    filter: drop-shadow(0 0 15px rgba(6, 182, 212, 0.75)) drop-shadow(0 0 30px rgba(6, 182, 212, 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 0 25px rgba(6, 182, 212, 0.95)) drop-shadow(0 0 45px rgba(59, 130, 246, 0.5));
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(1000%);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s infinite ease-in-out;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 24s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 18s linear infinite;
+}
+
+.animate-spin-fast {
+  animation: spin-slow 8s linear infinite;
+}
+
+.hud-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(6, 182, 212, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(6, 182, 212, 0.05) 1px, transparent 1px);
+}
+
+.hud-scanline {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(6, 182, 212, 0.08) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: scanline 8s linear infinite;
+}
+
+/* Glassmorphism */
+.glass-panel {
+  background: rgba(10, 15, 28, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(6, 182, 212, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+}
+
+.glass-panel-glow {
+  background: rgba(8, 20, 36, 0.85);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(6, 182, 212, 0.4);
+  box-shadow: 0 0 25px rgba(6, 182, 212, 0.15), inset 0 0 20px rgba(6, 182, 212, 0.05);
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(3, 7, 18, 0.8);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(6, 182, 212, 0.3);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(6, 182, 212, 0.6);
+}
